@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static AtomationTestsUtil.ApplicationUtil.Application.driver;
+import static AtomationTestsUtil.ApplicationUtil.Application.getDriver;
 
 public class MortgageProductsPage extends TopPage{
 
@@ -13,7 +13,7 @@ public class MortgageProductsPage extends TopPage{
     WebElement calculatePaymentsButton;
 
     public MortgageProductsPage() {
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(getDriver(), this);
 
     }
 

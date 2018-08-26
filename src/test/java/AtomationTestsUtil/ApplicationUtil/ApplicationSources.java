@@ -3,12 +3,11 @@ package AtomationTestsUtil.ApplicationUtil;
 public class ApplicationSources {
         private String baseUrl;
         private long implicitTimeOut;
-        private String browserName;
+        private BrowserName browserName;
 
         public ApplicationSources() {
             this.baseUrl = new String();
             this.implicitTimeOut = 30;
-            this.browserName = new String();
         }
 
         public static ApplicationSources get() {
@@ -25,7 +24,7 @@ public class ApplicationSources {
             return this;
         }
 
-        public ApplicationSources setBrowserName(String browserName) {
+        public ApplicationSources setBrowserName(BrowserName browserName) {
             this.browserName = browserName;
             return this;
         }
@@ -38,7 +37,7 @@ public class ApplicationSources {
             return implicitTimeOut;
         }
 
-        public String getBrowserName() {
+        public BrowserName getBrowserName() {
             return browserName;
         }
     }

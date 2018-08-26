@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static AtomationTestsUtil.ApplicationUtil.Application.driver;
+import static AtomationTestsUtil.ApplicationUtil.Application.getDriver;
 
 public class IAIndividualsPage extends TopPage{
 
@@ -15,7 +15,7 @@ public class IAIndividualsPage extends TopPage{
     private WebElement MortagageLink;
 
     public IAIndividualsPage() {
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(getDriver(), this);
     }
 
     public WebElement getLoanTab() {

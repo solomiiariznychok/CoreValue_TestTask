@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-import static AtomationTestsUtil.ApplicationUtil.Application.driver;
+import static AtomationTestsUtil.ApplicationUtil.Application.getDriver;
 
 public class TopPage {
 
@@ -14,7 +14,7 @@ public class TopPage {
     private WebElement headerElement;
 
         public TopPage() {
-            PageFactory.initElements(driver, this);
+            PageFactory.initElements(getDriver(), this);
 
         }
 

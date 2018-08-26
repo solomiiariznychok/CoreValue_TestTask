@@ -3,7 +3,9 @@ package AtomationTestsUtil.ApplicationUtil;
 import java.util.concurrent.TimeUnit;
 
 import AtomationTestsUtil.Pages.IAIndividualsPage;
-import AtomationTestsUtil.ResourcesUtil.ChromeDriverProperty;
+import AtomationTestsUtil.Pages.TopPage;
+import AtomationTestsUtil.ResourcesUtil.BrowserDriverProperty;
+import AtomationTestsUtil.customException.DriverLoadException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,34 +15,58 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class Application {
 
     private ApplicationSources applicationSources;
-    public static WebDriver driver;
+    private static WebDriver driver;
 
-    public Application(ApplicationSources applicationSources) {
-        this.applicationSources = applicationSources;
+    public static WebDriver getDriver() {
+        return driver;
+    }
+
+    private BrowserName browserName;
+
+    public Application(BrowserName browserName) {
+        this.browserName = browserName;
+        BrowserDriverProperty browserDriverProperty = new BrowserDriverProperty();
+        browserDriverProperty.loadBrowserDriverProperties();
+        this.applicationSources = ApplicationSources.get().setBaseUrl(browserDriverProperty.getBaseUrl()).setImplicitTimeOut(30).setBrowserName(browserName);
         System.out.println("\t*** Application Sources ***");
         System.out.println("\t" + applicationSources.getBaseUrl());
         System.out.println("\t" + applicationSources.getBrowserName());
     }
 
-    private void initFireFoxBrowser() {
-        if (driver == null) {
+    private  WebDriver initDriver(){
+        if (driver != null) {
+            throw new DriverLoadException("Driver didn't load or already initialized");
+        }
+        switch (browserName) {
+            case Chrome:
+                initChromeBrowser();
+
+                break;
+            case Firefox:
+                initFireFoxBrowser();
+
+            default:
+        }
+
+        driver.manage().timeouts()
+                .implicitlyWait(applicationSources.getImplicitTimeOut(), TimeUnit.SECONDS);
+        return driver;
+
+    }
+
+    private  void initFireFoxBrowser() {
+       // new BrowserDriverProperty().loadBrowserDriverProperties();
             driver = new FirefoxDriver();
-            driver.manage().timeouts()
-                    .implicitlyWait(applicationSources.getImplicitTimeOut(), TimeUnit.SECONDS);
-        }
     }
 
-    private void initChromeBrowser() {
-        new ChromeDriverProperty().loadChromeDriverProperties();
-        if (driver == null) {
+    private  void initChromeBrowser() {
+        //new BrowserDriverProperty().loadBrowserDriverProperties();
             driver = new ChromeDriver();
-            driver.manage().timeouts()
-                    .implicitlyWait(applicationSources.getImplicitTimeOut(), TimeUnit.SECONDS);
-        }
+
     }
 
-    public IAIndividualsPage loadChrome() {
-        initChromeBrowser();
+    public TopPage loadPage() {
+        initDriver();
         driver.get(applicationSources.getBaseUrl());
         return new IAIndividualsPage();
     }
