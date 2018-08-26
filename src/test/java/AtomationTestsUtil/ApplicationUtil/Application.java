@@ -8,7 +8,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class Application {
 
@@ -33,17 +35,23 @@ public class Application {
     private void initChromeBrowser() {
         new ChromeDriverProperty().loadChromeDriverProperties();
         if (driver == null) {
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("start-maximized");
+            DesiredCapabilities chromeCapibilities = DesiredCapabilities.chrome();
+            driver = new ChromeDriver(options);
             driver.manage().timeouts()
                     .implicitlyWait(applicationSources.getImplicitTimeOut(), TimeUnit.SECONDS);
+
         }
+
     }
 
+
     public IAIndividualsPage loadChrome() {
-        initChromeBrowser();
-        driver.get(applicationSources.getBaseUrl());
-        return new IAIndividualsPage();
-    }
+           initChromeBrowser();
+           driver.get(applicationSources.getBaseUrl());
+           return new IAIndividualsPage();
+  }
 
     public void quit() {
         if (driver != null) {

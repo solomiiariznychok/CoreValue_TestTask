@@ -1,25 +1,28 @@
 package AtomationTestsUtil.Pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
+import AtomationTestsUtil.Controls.ILabel;
+import AtomationTestsUtil.Controls.Label;
 
-import static AtomationTestsUtil.ApplicationUtil.Application.driver;
+public abstract class TopPage {
 
-public class TopPage {
+    private class TopPageUIMap {
 
-    @FindBy(id = "header")
-    private WebElement headerElement;
+        private ILabel homePageHeader;
 
-        public TopPage() {
-            PageFactory.initElements(driver, this);
-
+        public TopPageUIMap() {
+            this.homePageHeader = Label.get().getById("headre");
         }
-
-        public WebElement getHeaderElement(){
-            return this.headerElement;
-        }
-
     }
+
+    private TopPageUIMap controls;
+
+    public TopPage() {
+        this.controls = new TopPageUIMap();
+    }
+
+
+    public ILabel getHeaderLabel() {
+        return this.controls.homePageHeader;
+    }
+
+}

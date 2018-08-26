@@ -1,28 +1,28 @@
 package AtomationTestsUtil.Pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
-import static AtomationTestsUtil.ApplicationUtil.Application.driver;
+import AtomationTestsUtil.Controls.Button;
+import AtomationTestsUtil.Controls.IButton;
 
 public class MortgageProductsPage extends TopPage{
 
-    @FindBy(xpath = "//a[text()='Calculate your payments']")
-    WebElement calculatePaymentsButton;
+    private class MortgageProductsPageUIMap {
 
-    public MortgageProductsPage() {
-        PageFactory.initElements(driver, this);
+        public IButton calculatePaymentsButton;
 
+        public MortgageProductsPageUIMap() {
+            this.calculatePaymentsButton = Button.get().getByXpath("//a[text()='Calculate your payments']");
+        }
     }
+        private MortgageProductsPageUIMap controls;
 
-    public WebElement getCalculatePaymentsButton() {
-        return this.calculatePaymentsButton;
-    }
+        public MortgageProductsPage(){
+            controls = new MortgageProductsPageUIMap();
+        }
 
-    public MortgagePaymentCalculatorPage clickCalculatePaymentButton() {
-        getCalculatePaymentsButton().click();
-        return new MortgagePaymentCalculatorPage();
+    public IButton getCalculatePaymentsButton() {
+            return this.controls.calculatePaymentsButton; }
+
+    public MortgagePaymentCalculatorPage clickCalculatePaymentsButton() {
+            getCalculatePaymentsButton().click();
+        return new MortgagePaymentCalculatorPage();}
     }
-}
