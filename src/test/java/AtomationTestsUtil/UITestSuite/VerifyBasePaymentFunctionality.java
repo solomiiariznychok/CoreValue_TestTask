@@ -1,11 +1,9 @@
 package AtomationTestsUtil.UITestSuite;
 import AtomationTestsUtil.ApplicationUtil.Application;
 import AtomationTestsUtil.ApplicationUtil.BrowserName;
-import AtomationTestsUtil.Pages.IAIndividualsPage;
-import AtomationTestsUtil.Pages.MortgageProductsPage;
-import AtomationTestsUtil.Pages.MortgagePaymentCalculatorPage;
-import AtomationTestsUtil.Pages.TopPage;
-import org.testng.annotations.BeforeClass;
+import AtomationTestsUtil.Pages.*;
+import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Description;
 import ru.yandex.qatools.allure.annotations.Severity;
@@ -18,6 +16,7 @@ public class VerifyBasePaymentFunctionality {
     public static Application application;
     public static IAIndividualsPage iAIndividualsPage;
     public static TopPage topPage;
+    public static OptionsPage optionsPage;
     public static MortgageProductsPage mortgageProductsPage;
     public static MortgagePaymentCalculatorPage mortgagePaymentCalculatorPage;
     public static final String EXPECTED_PURCHASE_PRICE_VALUE = "500000";
@@ -26,9 +25,9 @@ public class VerifyBasePaymentFunctionality {
     public static final String WEEKLY_PAYMENTS_LABEL_RESULT = "$ 842.47";
 
     @Title("Open browser window and getting all necessary data about application sources")
-    @BeforeClass
+    @BeforeTest
     public void oneTimeSetUp() {
-        application = new Application(BrowserName.Chrome);
+
     }
 
     @Severity(SeverityLevel.NORMAL)
@@ -45,10 +44,11 @@ public class VerifyBasePaymentFunctionality {
              )
     @Test
     public void verifyWeeklyPaymentsResult()  {
+        application = new Application(BrowserName.Chrome);
         topPage = application.loadPage();
-        /*iAIndividualsPage = application.loadPage();
-        iAIndividualsPage.clickLoanTab();
-        mortgageProductsPage = iAIndividualsPage.clickMortagageLink();
+        iAIndividualsPage = topPage.verifyLabelLanguage();
+        optionsPage = iAIndividualsPage.clickLoanTab();
+        mortgageProductsPage = optionsPage.clickMortagageLink();
         mortgagePaymentCalculatorPage = mortgageProductsPage.clickCalculatePaymentButton();
         mortgagePaymentCalculatorPage.verifyPurchasePriceSliderMovement();
         Assert.assertTrue(mortgagePaymentCalculatorPage.getSliderSelectionWidthPercentage() > 0, "Purchase Price Slider was not movement correctly");
@@ -64,12 +64,7 @@ public class VerifyBasePaymentFunctionality {
         mortgagePaymentCalculatorPage.inputInterestRateTextBox(RATE_TEXT_BOX_VALUE);
         mortgagePaymentCalculatorPage.clickCalculateButton();
         Assert.assertEquals(mortgagePaymentCalculatorPage.getTextWeeklyPaymentsLabelResult(), WEEKLY_PAYMENTS_LABEL_RESULT, "Weekly payments result is not correct");
-        application.close();*/
-    }
-
-    @Test
-    public void verifyWeeklyPaymentsResultFirefox() {
-
+        application.close();
     }
 }
 
