@@ -1,4 +1,4 @@
-package AtomationTestsUtil.TestReport;
+package atomationTestsUtil.testReport;
 
 import org.testng.*;
 

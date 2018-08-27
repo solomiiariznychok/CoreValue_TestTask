@@ -1,18 +1,29 @@
-package AtomationTestsUtil.Pages;
+package atomationTestsUtil.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static AtomationTestsUtil.ApplicationUtil.Application.getDriver;
+import static atomationTestsUtil.applicationUtil.Application.getDriver;
 
-public class OptionsPage  extends IAIndividualsPage {
+public class IAIndividualsPage extends TopPage{
+
+    @FindBy(css = "a[href*='/individuals/pret']")
+    private WebElement LoanTab;
 
     @FindBy(css = "a[data-utag-name='mortgage_loan']")
     private WebElement MortagageLink;
 
-    public OptionsPage() {
+    public IAIndividualsPage() {
         PageFactory.initElements(getDriver(), this);
+    }
+
+    public WebElement getLoanTab() {
+        return this.LoanTab;
+    }
+
+    public void clickLoanTab() {
+        getLoanTab().click();
     }
 
     public WebElement getMortagageLink() {
@@ -20,7 +31,9 @@ public class OptionsPage  extends IAIndividualsPage {
     }
 
     public MortgageProductsPage clickMortagageLink(){
+        clickLoanTab();
         getMortagageLink().click();
         return new MortgageProductsPage();
     }
+
 }

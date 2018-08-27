@@ -1,4 +1,4 @@
-package AtomationTestsUtil.ApplicationUtil;
+package atomationTestsUtil.applicationUtil;
 
 public enum BrowserName {
     Firefox, Chrome

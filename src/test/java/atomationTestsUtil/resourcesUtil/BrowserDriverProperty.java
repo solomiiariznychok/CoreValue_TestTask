@@ -1,6 +1,6 @@
-package AtomationTestsUtil.ResourcesUtil;
+package atomationTestsUtil.resourcesUtil;
 
-import AtomationTestsUtil.customException.PropertiesLoadException;
+import atomationTestsUtil.customException.PropertiesLoadException;
 
 import java.io.*;
 import java.util.Properties;

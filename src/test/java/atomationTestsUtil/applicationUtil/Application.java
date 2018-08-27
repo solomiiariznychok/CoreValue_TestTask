@@ -1,11 +1,11 @@
-package AtomationTestsUtil.ApplicationUtil;
+package atomationTestsUtil.applicationUtil;
 
 import java.util.concurrent.TimeUnit;
 
-import AtomationTestsUtil.Pages.IAIndividualsPage;
-import AtomationTestsUtil.Pages.TopPage;
-import AtomationTestsUtil.ResourcesUtil.BrowserDriverProperty;
-import AtomationTestsUtil.customException.DriverLoadException;
+import atomationTestsUtil.pages.IAIndividualsPage;
+import atomationTestsUtil.pages.TopPage;
+import atomationTestsUtil.resourcesUtil.BrowserDriverProperty;
+import atomationTestsUtil.customException.DriverLoadException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

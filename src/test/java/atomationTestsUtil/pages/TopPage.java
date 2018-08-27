@@ -1,10 +1,10 @@
-package AtomationTestsUtil.Pages;
+package atomationTestsUtil.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static AtomationTestsUtil.ApplicationUtil.Application.getDriver;
+import static atomationTestsUtil.applicationUtil.Application.getDriver;
 
 public class TopPage {
 

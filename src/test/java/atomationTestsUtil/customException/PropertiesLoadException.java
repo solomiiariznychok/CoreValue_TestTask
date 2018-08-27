@@ -1,6 +1,6 @@
-package AtomationTestsUtil.customException;
+package atomationTestsUtil.customException;
 
-import AtomationTestsUtil.TestReport.Log4jWrapper;
+import atomationTestsUtil.testReport.Log4jWrapper;
 
 public class PropertiesLoadException extends RuntimeException {
     private static final String PROPERTIES_EXCEPTION = "Properties from application.properties don't found";

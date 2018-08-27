@@ -1,10 +1,8 @@
-package AtomationTestsUtil.UITestSuite;
-import AtomationTestsUtil.ApplicationUtil.Application;
-import AtomationTestsUtil.ApplicationUtil.BrowserName;
-import AtomationTestsUtil.Pages.*;
-import org.testng.Assert;
+package atomationTestsUtil.uiTestSuite;
+import atomationTestsUtil.applicationUtil.Application;
+import atomationTestsUtil.applicationUtil.BrowserName;
+import atomationTestsUtil.pages.*;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Description;

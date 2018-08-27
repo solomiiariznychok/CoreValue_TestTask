@@ -1,6 +1,6 @@
-package AtomationTestsUtil.customException;
+package atomationTestsUtil.customException;
 
-import AtomationTestsUtil.TestReport.Log4jWrapper;
+import atomationTestsUtil.testReport.Log4jWrapper;
 
 public class DriverLoadException extends RuntimeException{
     private static final String DRIVER_EXCEPTION = "Driver didn't load or already initialized";
