@@ -31,6 +31,7 @@ public class IAIndividualsPage extends TopPage{
     }
 
     public MortgageProductsPage clickMortagageLink(){
+        clickLoanTab();
         getMortagageLink().click();
         return new MortgageProductsPage();
     }

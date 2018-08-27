@@ -9,8 +9,11 @@ import static AtomationTestsUtil.ApplicationUtil.Application.getDriver;
 
 public class MortgageProductsPage extends TopPage{
 
-    @FindBy(xpath = "//a[text()='Calculate your payments']")
+    @FindBy(id = "bta-lien-renouveler-pret-hypothecaire-d6b1e12a-fc9f-43d0-80ad-4bef401c93ce")
     WebElement calculatePaymentsButton;
+
+    /*@FindBy(xpath = "//a[contains(@id,'bta-lien-renouveler-pret-hypothecaire')]")
+    WebElement calculatePaymentsButton;*/
 
     public MortgageProductsPage() {
         PageFactory.initElements(getDriver(), this);

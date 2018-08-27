@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import static AtomationTestsUtil.ApplicationUtil.Application.getDriver;
 
-public class OptionsPage extends IAIndividualsPage {
+public class OptionsPage  extends IAIndividualsPage {
 
     @FindBy(css = "a[data-utag-name='mortgage_loan']")
     private WebElement MortagageLink;
