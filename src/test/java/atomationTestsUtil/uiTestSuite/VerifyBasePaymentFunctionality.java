@@ -44,9 +44,11 @@ public class VerifyBasePaymentFunctionality {
              )
     @Test
     public void verifyWeeklyPaymentsResult()  {
+
         topPage = application.loadPage();
-        mortgageProductsPage = topPage.verifyLabelLanguage().clickMortagageLink();
-        //mortgagePaymentCalculatorPage = mortgageProductsPage.clickCalculatePaymentButton();
+        optionsPage = topPage.verifyLabelLanguage().clickLoanTab();
+        mortgageProductsPage = optionsPage.clickMortagageLink();
+        mortgagePaymentCalculatorPage = mortgageProductsPage.clickCalculatePaymentButton();
         /*mortgagePaymentCalculatorPage.verifyPurchasePriceSliderMovement();
         Assert.assertTrue(mortgagePaymentCalculatorPage.getSliderSelectionWidthPercentage() > 0, "Purchase Price Slider was not movement correctly");
         Assert.assertTrue(mortgagePaymentCalculatorPage.getPurchasePriceSliderStyleAttribute() > 0, "Purchase Price Slider was not movement correctly");

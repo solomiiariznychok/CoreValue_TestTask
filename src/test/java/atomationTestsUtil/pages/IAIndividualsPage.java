@@ -11,9 +11,6 @@ public class IAIndividualsPage extends TopPage{
     @FindBy(css = "a[href*='/individuals/pret']")
     private WebElement LoanTab;
 
-    @FindBy(css = "a[data-utag-name='mortgage_loan']")
-    private WebElement MortagageLink;
-
     public IAIndividualsPage() {
         PageFactory.initElements(getDriver(), this);
     }
@@ -22,18 +19,9 @@ public class IAIndividualsPage extends TopPage{
         return this.LoanTab;
     }
 
-    public void clickLoanTab() {
+    public OptionsPage clickLoanTab() {
         getLoanTab().click();
-    }
-
-    public WebElement getMortagageLink() {
-        return this.MortagageLink;
-    }
-
-    public MortgageProductsPage clickMortagageLink(){
-        clickLoanTab();
-        getMortagageLink().click();
-        return new MortgageProductsPage();
+        return new OptionsPage();
     }
 
 }

@@ -22,5 +22,7 @@ public class OptionsPage  extends IAIndividualsPage {
     public MortgageProductsPage clickMortagageLink(){
         getMortagageLink().click();
         return new MortgageProductsPage();
+
+
     }
 }

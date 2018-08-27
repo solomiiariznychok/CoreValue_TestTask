@@ -6,9 +6,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import static atomationTestsUtil.applicationUtil.Application.getDriver;
 
-public class MortgageProductsPage extends TopPage{
+public class MortgageProductsPage extends OptionsPage {
 
-    @FindBy(xpath = "//a[contains(@id,'bta-lien-renouveler-pret-hypothecaire')]")
+    @FindBy(css = "a[href*='/transfer-mortgage']")
     WebElement calculatePaymentsButton;
 
     public MortgageProductsPage() {
